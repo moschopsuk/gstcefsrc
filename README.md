@@ -8,6 +8,13 @@ cmake -G "Unix Makefiles" -DCMAKE_BUILD_TYPE=Release ..
 make
 ```
 
+# MacOS specifics
+Should the make process fail due to missing libffi and it was installed with brew `brew install libffi`. It will need to be available to the path before make runs.
+
+```
+export PKG_CONFIG_PATH=/usr/local/Cellar/libffi/3.2.1/lib/pkgconfig
+```
+
 ## Run
 
 Because of [this issue], the main executable must be located in the

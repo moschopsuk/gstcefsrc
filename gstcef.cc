@@ -194,6 +194,10 @@ gst_cef_src_start(GstBaseSrc *base_src)
   settings.no_sandbox = true;
   settings.windowless_rendering_enabled = true;
 
+  #if defined(OS_MACOSX)
+    CefString(&settings.framework_dir_path).FromASCII("/usr/local/Frameworks/Chromium Embedded Framework.framework");
+  #endif
+
   GST_INFO_OBJECT  (src, "Starting up");
 
   /* FIXME: won't work installed */
